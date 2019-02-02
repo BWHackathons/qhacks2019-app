@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Konvoi</string>
     <string name="title_activity_maps">Map</string>
+    <string-array name="snap_kit_scopes">
+        <
+    </string-array>
 </resources>

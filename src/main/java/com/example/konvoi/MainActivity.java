@@ -1,6 +1,7 @@
 package com.example.konvoi;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        Bitmoji.fetchAvatarUrl(context, new FetchAvatarUrlCallback()) {
+            @Override
+            public void onSuccess(@Nullable String avatarUrl) {
+                //fuck
+            }
 
+            @Override
+            public void onFailure(boolean isNetworkError, int statusCode){
+                //fuck 2
+            }
+        }};
     }
 
 
