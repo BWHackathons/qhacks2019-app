@@ -211,7 +211,7 @@ public class mainPage extends AppCompatActivity implements OnMapReadyCallback {
 
     }
 
-    private void getDeviceLocation() {
+    private void getDeviceLocation(final boolean move) {
         Log.d(TAG, "GetDeviceLocation: getting the devices current location");
 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -226,8 +226,9 @@ public class mainPage extends AppCompatActivity implements OnMapReadyCallback {
                             Log.d(TAG, "onComplete: found location!");
                             Location currentLocation = (Location) task.getResult();
 
-                            moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
-                                    DEFAULT_ZOOM);
+                            if(move)
+                                moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
+                                        DEFAULT_ZOOM);
 
                             try {
                                 JSONObject body = new JSONObject();
@@ -282,11 +283,11 @@ public class mainPage extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void run() {
                 addMarkers();
-                getDeviceLocation();
-                handler.postDelayed(this, 60000);
+                getDeviceLocation(false);
+                handler.postDelayed(this, 5000);
             }
         };
-        handler.postDelayed(r, 60000);
+        handler.postDelayed(r, 5000);
 //        // Add a marker in Sydney, Australia, and move the camera.
 //        final LatLng sydney = new LatLng(-34, 151);
 //        LatLng toronto = new LatLng(-34, 140);
@@ -312,7 +313,7 @@ public class mainPage extends AppCompatActivity implements OnMapReadyCallback {
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         if (mLocationPermissionGranted) {
-            getDeviceLocation();
+            getDeviceLocation(true);
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions
@@ -387,7 +388,7 @@ public class mainPage extends AppCompatActivity implements OnMapReadyCallback {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mLocationPermissionGranted = true;
-                    getDeviceLocation();
+                    getDeviceLocation(true);
                     mMap.setMyLocationEnabled(true);
                 } else {
                     mLocationPermissionGranted = false;

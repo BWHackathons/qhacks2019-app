@@ -40,8 +40,8 @@ public class createTrip extends AppCompatActivity {
 
             public void onClick(View arg0) {
 
-                RequestQueue rq = Volley.newRequestQueue(context);
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, serverIp + "/groups/join/"+code,
+                final RequestQueue rq = Volley.newRequestQueue(context);
+                final StringRequest stringRequest = new StringRequest(Request.Method.GET, serverIp + "/groups/join/"+code,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -62,7 +62,7 @@ public class createTrip extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                //nothing to do
+                                rq.add(stringRequest);
                             }
                         }, new Response.ErrorListener() {
 
@@ -75,7 +75,7 @@ public class createTrip extends AppCompatActivity {
 
                 // Add the request to the RequestQueue.
                 rq.add(stringRequest2);
-                rq.add(stringRequest);
+
 
             }
         });
