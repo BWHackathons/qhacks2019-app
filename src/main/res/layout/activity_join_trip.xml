@@ -16,7 +16,8 @@
         android:layout_marginBottom="69dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Code"
+        android:hint="Code"
+        android:maxLength="6"
         app:layout_constraintBottom_toTopOf="@+id/tripInfo"
         app:layout_constraintStart_toStartOf="@+id/tripInfo"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,6 +32,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="131dp"
         android:text="TextView"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

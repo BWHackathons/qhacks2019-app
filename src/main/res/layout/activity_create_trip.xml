@@ -10,11 +10,7 @@
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="81dp"
         android:text="Done!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,60 +20,57 @@
         android:id="@+id/code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="18dp"
         android:text="generated code"
-        app:layout_constraintBottom_toTopOf="@+id/destinationLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textIsSelectable="true"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/copyButton"
+        app:layout_constraintStart_toEndOf="@+id/codeLabel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/codeLabel"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
         android:text="Trip Code"
         app:layout_constraintBaseline_toBaselineOf="@+id/code"
-        app:layout_constraintEnd_toStartOf="@+id/code" />
+        app:layout_constraintEnd_toStartOf="@+id/code"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="Destination"
         android:inputType="textPersonName"
-        android:text="Destination"
-        app:layout_constraintBaseline_toBaselineOf="@+id/destinationLabel"
-        app:layout_constraintStart_toEndOf="@+id/destinationLabel" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/destinationLabel"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/destinationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginStart="16dp"
         android:text="Where to?"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/destination"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tripNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:text="What's Your Trip Name?"
-        android:textSize="18sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -87,11 +80,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="42dp"
-        android:layout_marginRight="42dp"
         android:ems="10"
+        android:hint="Trip Name"
         android:inputType="textPersonName"
-        android:text="Trip Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tripNameLabel" />
+
+    <Button
+        android:id="@+id/copyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="42dp"
+        android:text="Copy Text"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

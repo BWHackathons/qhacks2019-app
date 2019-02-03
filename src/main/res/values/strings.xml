@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Konvoi</string>
+    <string name="title_activity_maps">Map</string>
+    <string-array name="snap_kit_scopes">
+        <item>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</item>
+    </string-array>
 </resources>
